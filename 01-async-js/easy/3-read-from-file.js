@@ -5,3 +5,17 @@
 // Try to do an expensive operation below the file read and see how it affects the output. 
 // Make the expensive operation more and more expensive and see how it affects the output. 
 
+const fs = require("fs");
+
+function printContent(err,data){
+    if(err)
+        console.error(err.message)
+    else{console.log(data)}
+}
+
+fs.readFile("./a.txt","utf-8",printContent);
+let sum = 0;
+for(let i=1;i<=100000000;i++){
+    sum+=i;
+}
+console.log(sum);

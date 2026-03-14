@@ -6,3 +6,28 @@
 //  - HH:MM::SS (Eg. 13:45:23)
 
 //  - HH:MM::SS AM/PM (Eg 01:45:23 PM)
+
+
+function pad(num){
+    return num.toString().padStart(2,'0');
+}
+
+function showTime(){
+    let time = new Date();
+
+    let hours = pad(time.getHours());
+    let minutes = pad(time.getMinutes());
+    let seconds = pad(time.getSeconds());
+
+    let hours24 = `${hours}:${minutes}::${seconds}`
+
+    ampm = hours<12 ? "am" : "pm";
+    let hours12 = (hours === 0) ? 12 : hours;
+    hours12 = `${hours12}:${minutes}::${seconds} ${ampm}`
+
+    console.clear();
+    console.log("24 Hours format " + hours24);
+    console.log("12 Hours format " + hours12);
+}
+
+setInterval(showTime,1000);

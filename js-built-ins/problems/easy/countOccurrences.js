@@ -19,9 +19,15 @@
 */
 
 
-function countOccurrences(arr) {
-  // Your code here
-}
+const countOccurrences = (arr) => {
+  let output = {};
+  for(let x of arr){
+    if(!output[x])
+        output[x]=0;
+    output[x]+=1;
+  }
+  return output
+};
 
 module.exports = countOccurrences;
 

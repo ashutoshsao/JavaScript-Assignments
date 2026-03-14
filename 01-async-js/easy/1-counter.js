@@ -5,10 +5,9 @@
 
 let counter = 0;
 
-
-const updateCounter = () => {
+function updateCounter(){
   counter++;
   console.log(counter);
-};
+}
 
 setInterval(updateCounter, 1000);

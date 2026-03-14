@@ -16,7 +16,17 @@
 */
 
 function getPrimesUpTo100() {
-  // Your code here
+  let ans = [];
+  for(let i=1;i<=100;i++){
+    let cnt =0;
+    for(let j=1;j<=100;j++){
+      if(i%j==0)
+        cnt++;
+    }
+    if(cnt===2)
+      ans.push(i);
+  }
+  return ans;
 }
 
 module.exports = { getPrimesUpTo100 };

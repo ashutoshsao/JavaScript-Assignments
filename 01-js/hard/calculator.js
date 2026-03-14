@@ -17,6 +17,79 @@
   - `npm run test-calculator`
 */
 
-class Calculator { }
+class Arithmatics {
+  constructor(x){
+    this.value = x
+  }
+  static total = 100;
+  static about(){
+    console.log("this is from the parent Atithmatics class with attribute total : "+ Arithmatics.total);
+  }
+
+  add(){
+    console.log("parent class value is : "+this.value)
+    throw new Error("must implement add function in child class")
+  }
+}
+
+class Calculator extends Arithmatics {
+  constructor(x){
+    super(x);
+    this.result = 0;
+  }
+
+  // add(n){
+  //   this.result+=n;
+  //   return this;
+  // }
+  subtract(n){
+    this.result-=n;
+    return this;
+  }
+  multiply(n){
+    this.result*=n;
+    return this;
+  }
+  divide(n){
+    if (n === 0) throw new Error("Cannot divide by zero");
+    this.result /= n;
+    return this;
+  }
+  clear(){
+    this.result=0;
+    return this;
+  }
+  getResult(){
+    return this.result;
+  }
+  calculate(expression) {
+    if (typeof expression !== "string") {
+      throw new Error("Invalid expression");
+    }
+
+    const cleaned = expression.replace(/\s+/g, '');
+
+    if (!/^[0-9+\-*/().]+$/.test(cleaned)) {
+      throw new Error("Invalid characters in expression");
+    }
+
+    try {
+      const value = Function(`"use strict"; return (${cleaned})`)();
+      this.result = value;
+      return this;
+    } catch {
+      throw new Error("Invalid mathematical expression");
+    }
+  }
+}
+
+try{
+  let calc = new Calculator(10);
+  Calculator.about();
+}
+catch(err){
+  console.error(err.message);
+}
+
 
 module.exports = Calculator;

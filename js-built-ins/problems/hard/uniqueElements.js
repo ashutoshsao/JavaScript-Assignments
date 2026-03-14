@@ -19,7 +19,12 @@
 */
 
 function getUniqueElements(arr) {
-  // Your code here
+  let result = [];
+  for(let x of arr){
+    if(!result.includes(x))
+      result.push(x);
+  }
+  return result
 }
 
 module.exports = getUniqueElements;
