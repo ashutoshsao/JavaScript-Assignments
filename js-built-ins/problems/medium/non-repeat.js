@@ -21,16 +21,15 @@
   - `npm run test-nonrepeat`
 */
 function nonrepeat(str) {
-  if(!str) return null;
+  const freq = {}
+  for(let ch of str){
+    if(!freq[ch]) freq[ch]=0;
+    freq[ch]++;
+  }
 
-  const freq = {};
-  for(let ch of str){
-    freq[ch] = (freq[ch] || 0) +1
+  for(let x in freq){
+    if(freq[x]===1) return x;
   }
-  for(let ch of str){
-    if(freq[ch]==1)
-      return ch;
-  }
-  return null;
+  return null
 }
 module.exports = nonrepeat;

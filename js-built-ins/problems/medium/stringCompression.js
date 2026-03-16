@@ -22,22 +22,22 @@
 */
 function compression(str){
   if (str.length === 0) return "";
-  let result = "";
-  let count = 1;
-  
-  for (let i = 1; i <= str.length; i++) {
-    if (str[i] === str[i - 1]) {
-      count++;
-    } else {
-      result += str[i - 1];
-      if (count > 1) {
-        result += count;
-      }
-      count = 1;
+  let output = "";
+  let p=0;
+  let q=0;
+  while(p<str.length){
+    if(str[p]===' ') continue;
+    q=p;
+    let cnt=0;
+    while(q<str.length && str[q]===str[p]){
+      cnt++;
+      q++;
     }
+    output+=str[p];
+    if(cnt>1) output+=`${cnt}`;
+    p=q
   }
-
-  return result;
+  return output;
 }
 
 module.exports = compression;

@@ -22,9 +22,8 @@
 const countOccurrences = (arr) => {
   let output = {};
   for(let x of arr){
-    if(!output[x])
-        output[x]=0;
-    output[x]+=1;
+    if(!output[x]) output[x]=0;
+    output[x]++;
   }
   return output
 };

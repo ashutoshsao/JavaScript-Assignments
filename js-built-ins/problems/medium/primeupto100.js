@@ -16,14 +16,17 @@
 */
 
 function getPrimesUpTo100() {
+  //tried a different approach
   let ans = [];
-  for(let i=1;i<=100;i++){
-    let cnt =0;
-    for(let j=1;j<=100;j++){
-      if(i%j==0)
-        cnt++;
+  for(let i=2;i<=100;i++){
+    let flag=false;
+    for(let j=2;j<i;j++){
+      if(i%j==0){
+        flag=true;
+        break;
+      }
     }
-    if(cnt===2)
+    if(!flag)
       ans.push(i);
   }
   return ans;

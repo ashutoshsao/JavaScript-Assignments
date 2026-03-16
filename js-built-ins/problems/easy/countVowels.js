@@ -26,13 +26,12 @@
 */
 
 function countVowels(str) {
-  let vowels = "AEIOUaeiou";
-  let cnt = 0;
+  let vowels = new Set("aeiouAEIOU".split(''))
+  let output = 0;
   for(let ch of str){
-    if(vowels.includes(ch))
-      cnt++;
+    if(vowels.has(ch)) output++;
   }
-  return cnt;
+  return output
 }
 
 module.exports = { countVowels };
