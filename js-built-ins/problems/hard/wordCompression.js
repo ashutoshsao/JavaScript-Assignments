@@ -23,21 +23,25 @@
 
 
 function compressWords(arr) {
-  if (!arr.length) return [];
+  if (arr.length === 0) return [];
 
-  let result = [];
+  let output = [];
   let count = 1;
 
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] === arr[i + 1]) {
       count++;
     } else {
-      result.push(count > 1 ? arr[i] + count : arr[i]);
+      if (count > 1) {
+        output.push(`${arr[i]}${count}`);
+      } else {
+        output.push(arr[i]);
+      }
       count = 1;
     }
   }
 
-  return result;
+  return output;
 }
 
 

@@ -21,8 +21,8 @@ function showTime(){
 
     let hours24 = `${hours}:${minutes}::${seconds}`
 
-    ampm = hours<12 ? "am" : "pm";
-    let hours12 = (hours === 0) ? 12 : hours;
+    let ampm = hours<12 ? "am" : "pm";
+    let hours12 = (hours === 0) ? 12 : pad(hours%12);
     hours12 = `${hours12}:${minutes}::${seconds} ${ampm}`
 
     console.clear();

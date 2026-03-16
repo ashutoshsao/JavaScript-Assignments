@@ -8,7 +8,7 @@ const fs = require("fs");
 function printContent(err){
     if(err)
         console.error(err.message)
-    else{console.log("done!")}
+    else console.log("done!")
 }
 
 fs.writeFile("./a.txt","i am loving it",printContent);

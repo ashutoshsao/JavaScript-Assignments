@@ -10,18 +10,15 @@
 
 function calculateTotalSpentByCategory(transactions) {
   let total = {}
-
   for(let tx of transactions){
-    if(!total[tx.category]){
-      total[tx.category] = 0;
-    }
-    total[tx.category] += tx.price;
+    if(!total[tx.category]) total[tx.category]=0;
+    total[tx.category]+=tx.price
   }
 
-  return Object.keys(total).map((category)=>({
-    category:category,
-    totalSpent:total[category]
-  }));
+  Object.keys(total).map((tx)=>({
+    category:tx,
+    total:total[tx]
+  }))
 }
 
 module.exports = calculateTotalSpentByCategory;
